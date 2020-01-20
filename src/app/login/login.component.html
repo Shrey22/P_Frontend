@@ -1,0 +1,63 @@
+<br>
+<br>
+<br>
+<!-- <div class="model-content">
+    <form #myForm="ngForm" (onSubmit)="Login(myForm)" class="from-container" >
+    
+        <div class="container" style="padding-right: 55%;">
+          <label for="EmailId"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="EmailId" required class="form-control">
+      
+          <label for="Password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="Password" required class="form-control">
+      
+          <button type="submit" class="btn btn-success">Login</button>
+          <label>&nbsp;&nbsp;&nbsp;&nbsp;   
+            <b>New here?</b>&nbsp;&nbsp; <a href="/register"><b>Register</b></a>
+          </label>
+          
+        </div>
+      </form>
+    
+</div> --> 
+
+
+<div class="bg-img">
+
+  <div class="content">
+      <h1>Login Now</h1>
+        <h2>and Experience the Truth</h2>
+  </div>
+  
+  
+  
+    <div class="container"> 
+       <span>
+         {{message}}
+       </span>
+      <form #myForm="ngForm" (ngSubmit)="Validation(myForm.value)" class="container">
+        
+          <div class="container" style="padding-right: 25%; color:rgb(114, 150, 161)">
+            <label  for="EmailId"><b>Username</b></label>
+            <input [(ngModel)]="EmailId" type="email" placeholder="Enter Username" name="EmailId" class="form-control" required="required">
+              <br>
+            <label for="Password"><b>Password</b></label>
+            <input [(ngModel)]="Password" type="password" placeholder="Enter Password" name="Password"  class="form-control" required="required">
+              <br>
+            <button type="submit" class="btn btn-success">Login</button>
+            <label style="color: white;">   
+              &nbsp;&nbsp; <a routerLink="/forgotpassword"><b style="color: rgb(62, 81, 185);">Forgotpassword</b></a>
+            </label><br>
+            <label style="color: white;">   
+              <b>New here?</b>&nbsp;&nbsp; <a routerLink="/register"><b style="color: rgb(62, 81, 185);">Register</b></a>
+            </label>
+              <span>
+                <b style="color: white;">{{msg}}</b>
+              </span>            
+          </div>
+        </form>
+
+  </div> 
+  
+  </div>
+  

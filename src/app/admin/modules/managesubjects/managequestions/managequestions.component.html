@@ -1,0 +1,125 @@
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" routerLink ="/home">Shiksha</a>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a class = "nav-link" routerLink ="/admin/dashboard">DashBoard</a>
+      </li>
+      <li class="active">
+        <a class = "nav-link" routerLink ="/home">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Modules
+        </a> 
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink ="/admin/modules/managesubjects">Manage Subjects</a>
+          <a class="dropdown-item" routerLink ="/admin/modules/addsubject">Add Subject</a>
+        </div>
+      </li>  
+      <li class="active">
+        <a class = "nav-link" routerLink ="/admin/users">Users</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Exams
+        </a> 
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink ="/admin/exam/results">Results</a>
+          <!-- <a class="dropdown-item" routerLink ="">Set Paper Format</a> -->
+        </div>
+      </li>
+      <li class="active">
+        <a class = "nav-link" routerLink ="/admin/feedback">Feedback</a>
+      </li>
+      <li class="active">
+        <a class = "nav-link" routerLink ="/admin/manageprofile">Manage Profile</a>
+      </li> 
+    </ul> 
+    <ul style="padding-left: 532px;">
+      <div>
+       <img src="assets/images/avt1.jpg" alt="Avatar" class="avatar" >
+      </div>
+    </ul>
+    <ul class="nav navbar-right">
+        <li>
+            <a class="nav-link" routerLink="/login">Logout</a>
+        </li>
+    </ul>
+     
+ 
+  </nav> 
+
+<br><br><br><br>
+ 
+<div class="bg-img">
+  <h1>Manage Questions</h1>
+ 
+  <div class="content">        
+    <form #myFrom ="ngForm" (ngSubmit)="register(myFrom)"> 
+       <table style="text-align:left;">
+           <tr>
+               <td>
+                <b>Subject Name</b>
+               </td>
+               <td style="width: 400px;">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="subject to be added">
+                  </div>           
+               </td>
+           </tr>
+           <tr>
+            <td>
+             <b>Duration</b>
+            </td>
+            <td>
+             <div class="form-group">
+                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mm:ss">
+               </div>           
+            </td>
+        </tr>
+            <tr>
+                <td><a routerLink="/admin/modules/managesubjects">backto Manage-sub</a></td>
+                <td style="text-align: right;">
+                    <button type="submit" class="btn btn-success">Add New Question</button>
+                   </td>
+            </tr>
+           <!-- <tr>
+               <td style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Update</button>
+               </td>
+               <td style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Update</button>
+               </td>  
+            </tr> -->
+       </table>
+     </form>
+    </div>
+
+    <div class="content1">
+            <h3>Added Questions</h3>
+            <ul>
+                <li>
+                    Question 1
+                </li>
+                <li>
+                    Question 2
+                </li>
+                <li>
+                    Question 3
+                </li>
+            </ul>
+    </div>
+
+</div>
+
+  <router-outlet></router-outlet>
+  
+  <div class="footer bg-dark">
+      <div class="footer-copyright text-center py-2">© 2020 Copyright
+        <a routerLink="/home">Shiksha.kdac.org</a>
+      </div> 
+  </div>
+  
+  
+ 
