@@ -26,15 +26,24 @@ UserData:any
 
   Login(data:any)
   {
+    debugger
     sessionStorage.setItem("isLoggedIn", "1");
-    sessionStorage.setItem("EmailId",data.EmailId);
-    sessionStorage.setItem("UserId", data.UserId);
-    sessionStorage.setItem("RoleId", data.RoleId);
+    sessionStorage.setItem("EmailId",data.Data.EmailId);
+    sessionStorage.setItem("UserId", data.Data.UserId);
+    sessionStorage.setItem("RoleId", data.Data.RoleId);
     sessionStorage.setItem("userData", JSON.stringify(data));
     this.UserData = data;
     this.router.navigate(['/user/dashboard']);
    return
   }
 
-  
+  Logout()
+  { 
+    sessionStorage.setItem("isLoggedIn", "0");
+    delete sessionStorage["EmailId"];
+    delete sessionStorage["UserId"];
+    delete sessionStorage["userData"];
+    delete sessionStorage["isLoggedIn"];
+    this.router.navigate(['/login']);
+  }
 }

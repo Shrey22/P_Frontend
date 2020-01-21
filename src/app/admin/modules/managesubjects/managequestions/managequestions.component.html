@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" routerLink ="/home">Shiksha</a>
     <ul class="nav navbar-nav">
       <li class="active">
@@ -26,7 +26,7 @@
         </a> 
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink ="/admin/exam/results">Results</a>
-          <!-- <a class="dropdown-item" routerLink ="">Set Paper Format</a> -->
+  
         </div>
       </li>
       <li class="active">
@@ -48,15 +48,15 @@
     </ul>
      
  
-  </nav> 
+  </nav>  -->
 
 <br><br><br><br>
  
-<div class="bg-img">
+<!-- <div class="bg-img"> -->
   <h1>Manage Questions</h1>
  
   <div class="content">        
-    <form #myFrom ="ngForm" (ngSubmit)="register(myFrom)"> 
+      <form #myFrom ="ngForm" (ngSubmit)="register(myFrom)"> 
        <table style="text-align:left;">
            <tr>
                <td>
@@ -64,7 +64,7 @@
                </td>
                <td style="width: 400px;">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="subject to be added">
+                    <input type="text" readonly class="form-control" id="subId" name="SubName" aria-describedby="emailHelp" placeholder="subject to be added">
                   </div>           
                </td>
            </tr>
@@ -89,9 +89,9 @@
                 <button type="submit" class="btn btn-primary">Update</button>
                </td>
                <td style="text-align: center;">
-                <button type="submit" class="btn btn-primary">Update</button>
-               </td>  
-            </tr> -->
+                <!-- <button type="submit" class="btn btn-primary">Update</button> -->
+               <!-- </td>   -->
+            <!-- </tr> -->
        </table>
      </form>
     </div>
@@ -111,15 +111,8 @@
             </ul>
     </div>
 
-</div>
+<!-- </div> -->
 
-  <router-outlet></router-outlet>
-  
-  <div class="footer bg-dark">
-      <div class="footer-copyright text-center py-2">© 2020 Copyright
-        <a routerLink="/home">Shiksha.kdac.org</a>
-      </div> 
-  </div>
   
   
  

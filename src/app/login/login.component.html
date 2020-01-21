@@ -22,42 +22,50 @@
 </div> --> 
 
 
-<div class="bg-img">
+<div *ngIf="!this.auth_service.isLoggedIn()">
+  <div class="bg-img">
 
-  <div class="content">
-      <h1>Login Now</h1>
-        <h2>and Experience the Truth</h2>
-  </div>
+    <div class="content">
+        <h1>Login Now</h1>
+          <h2>and Experience the Truth</h2>
+    </div>
+    
+    
+    
+      <div class="container"> 
+         <span>
+           {{message}}
+         </span>
+        <form #myForm="ngForm" (ngSubmit)="Validation(myForm.value)" class="container">
+          
+            <div class="container" style="padding-right: 25%; color:rgb(114, 150, 161)">
+              <label  for="EmailId"><b>Username</b></label>
+              <input [(ngModel)]="EmailId" type="email" placeholder="Enter Username" required name="EmailId" class="form-control" #spy >
+                <br>
+                
+                <!-- <div *ngIf="EmailId.invalid && (EmailId.dirty || EmailId.touched || EmailId.pristine)" class="alert alert-danger">
+                <div *ngIf="EmailId.errors.required">
+                  EmailiId is required.
+              </div>
+              </div> -->
+              <label for="Password"><b>Password</b></label>
+              <input [(ngModel)]="Password" type="password" placeholder="Enter Password" required name="Password"  class="form-control" >
+                <br>
+              <button type="submit" class="btn btn-success">Login</button>
+              <label style="color: white;">   
+                &nbsp;&nbsp; <a routerLink="/forgotpassword"><b style="color: rgb(62, 81, 185);">Forgotpassword</b></a>
+              </label><br>
+              <label style="color: white;">   
+                <b>New here?</b>&nbsp;&nbsp; <a routerLink="/register"><b style="color: rgb(62, 81, 185);">Register</b></a>
+              </label>
+                <span>
+                  <b style="color: white;">{{msg}}</b>
+                </span>            
+            </div>
+          </form>
   
-  
-  
-    <div class="container"> 
-       <span>
-         {{message}}
-       </span>
-      <form #myForm="ngForm" (ngSubmit)="Validation(myForm.value)" class="container">
-        
-          <div class="container" style="padding-right: 25%; color:rgb(114, 150, 161)">
-            <label  for="EmailId"><b>Username</b></label>
-            <input [(ngModel)]="EmailId" type="email" placeholder="Enter Username" name="EmailId" class="form-control" required="required">
-              <br>
-            <label for="Password"><b>Password</b></label>
-            <input [(ngModel)]="Password" type="password" placeholder="Enter Password" name="Password"  class="form-control" required="required">
-              <br>
-            <button type="submit" class="btn btn-success">Login</button>
-            <label style="color: white;">   
-              &nbsp;&nbsp; <a routerLink="/forgotpassword"><b style="color: rgb(62, 81, 185);">Forgotpassword</b></a>
-            </label><br>
-            <label style="color: white;">   
-              <b>New here?</b>&nbsp;&nbsp; <a routerLink="/register"><b style="color: rgb(62, 81, 185);">Register</b></a>
-            </label>
-              <span>
-                <b style="color: white;">{{msg}}</b>
-              </span>            
-          </div>
-        </form>
-
-  </div> 
-  
-  </div>
+    </div> 
+    
+    </div>
+</div>
   

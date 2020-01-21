@@ -65,7 +65,7 @@ loginUserData ={}
       if (isLoggedIn)
      {
       //  debugger
-        this.auth_service.Login(result);
+        this.auth_service.Login(result1);
         this.msg ="";
         debugger
         if(result1.Data.RoleId == 2)

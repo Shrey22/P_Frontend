@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-manage-profile',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-profile.component.css']
 })
 export class ManageProfileComponent implements OnInit {
-
-  constructor() { }
+  userProfileData:any
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    let user = this.dataService.UserData(sessionStorage.UserId);   
+    user.subscribe((result:any)=>{
+      debugger
+      console.log(result);
+      
+      this.userProfileData = result;
+    })
   }
 
 }

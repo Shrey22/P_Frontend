@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-managequestions',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagequestionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:DataService) { }
 
   ngOnInit() {
   }

@@ -39,6 +39,7 @@ import { ManagesubjectsComponent } from './admin/modules/managesubjects/managesu
 import { EditComponent } from './admin/modules/managesubjects/edit/edit.component';
 import { ManagequestionsComponent } from './admin/modules/managesubjects/managequestions/managequestions.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ManagesubjectsComponent,
     EditComponent,
     ManagequestionsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +111,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
       { path: 'admin/feedback/viewfb',component:ViewfeedbackComponent, canActivate:[AuthService] },      
       { path: 'admin/manageprofile',component:AManageProfileComponent, canActivate:[AuthService] },
       { path: 'forgotpassword', component:ForgotPasswordComponent},
-      { path: 'role',component:RoleComponent }
+      { path: 'role',component:RoleComponent },
+      { path: 'editprofile', component:EditComponent, canActivate:[AuthService]}
     ])
   ],
   providers: [DataService, HttpClientModule],
