@@ -22,7 +22,6 @@ export class UsersComponent implements OnInit {
 
   manageUser(user)
   {
-    debugger
     // if (user.IsLocked == true) 
     // {
     //   user.IsLocked="false";  

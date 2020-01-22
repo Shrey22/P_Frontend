@@ -56,7 +56,7 @@
   <h1>Manage Questions</h1>
  
   <div class="content">        
-      <form #myFrom ="ngForm" (ngSubmit)="register(myFrom)"> 
+     
        <table style="text-align:left;">
            <tr>
                <td>
@@ -64,27 +64,17 @@
                </td>
                <td style="width: 400px;">
                 <div class="form-group">
-                    <input type="text" readonly class="form-control" id="subId" name="SubName" [(ngModel)]="subject.SubName">
+                    <input type="text" readonly class="form-control" id="subId" value={{this.subject.SubName}}>
                   </div>           
                </td>
            </tr>
            
             <tr>
-                <td><a routerLink="/admin/modules/managesubjects">backto Manage-sub</a></td>
-                <td style="text-align: right;">
-                    <button type="submit" class="btn btn-success">Add New Question</button>
-                   </td>
+                <td colspan="2"><a style="color: white;" routerLink="/admin/modules/managesubjects"><b>Back to Manage-sub</b></a></td>
+                
             </tr>
-           <!-- <tr>
-               <td style="text-align: center;">
-                <button type="submit" class="btn btn-primary">Update</button>
-               </td>
-               <td style="text-align: center;">
-                <!-- <button type="submit" class="btn btn-primary">Update</button> -->
-               <!-- </td>   -->
-            <!-- </tr> -->
+          
        </table>
-     </form>
     </div>
 
     <div class="content1">
@@ -103,7 +93,8 @@
     </div>
 
     <div class="content2">
-      <form #myFrom ="ngForm" (ngSubmit)="addQues(myFrom.value)"> 
+      
+      <form #myFrom ="ngForm" (ngSubmit)="addQues(myFrom)"> 
         <label for="Question"><b>Question</b></label>
         <input ngModel type="text"  name="Question" required class="form-control" >
     
@@ -122,10 +113,9 @@
         </div>
         
       
-          <span>
-              {{message}}
-          </span>
+          
  </form>
+ 
     </div>
 </div>
 

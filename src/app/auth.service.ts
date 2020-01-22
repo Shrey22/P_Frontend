@@ -24,6 +24,11 @@ UserData:any
     }
   }
 
+  isAdmin()
+  {
+    return (sessionStorage.getItem("RoleId")=="1");
+  }
+
   Login(data:any)
   {
     debugger

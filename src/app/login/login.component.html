@@ -32,7 +32,7 @@
     
     
     
-      <div class="container"> 
+      <div class="container1  "> 
          <span>
            {{message}}
          </span>
@@ -40,17 +40,28 @@
           
             <div class="container" style="padding-right: 25%; color:rgb(114, 150, 161)">
               <label  for="EmailId"><b>Username</b></label>
-              <input [(ngModel)]="EmailId" type="email" placeholder="Enter Username" required name="EmailId" class="form-control" #spy >
+              <input class="form-control" ngModel type="email" placeholder="Enter Username" id="EmailId" required email  name="EmailId" #EmailId="ngModel" #spy>
                 <br>
                 
-                <!-- <div *ngIf="EmailId.invalid && (EmailId.dirty || EmailId.touched || EmailId.pristine)" class="alert alert-danger">
-                <div *ngIf="EmailId.errors.required">
-                  EmailiId is required.
+                <div *ngIf="EmailId.invalid && (EmailId.dirty || EmailId.touched || EmailId.pristine)" class="alert alert-danger">
+                  <div *ngIf="EmailId.errors.required">
+                      Email id is required.
+                  </div>
+                  <div *ngIf="EmailId.errors.email">
+                      Email Id must be valid.
+                  </div>
               </div>
-              </div> -->
               <label for="Password"><b>Password</b></label>
-              <input [(ngModel)]="Password" type="password" placeholder="Enter Password" required name="Password"  class="form-control" >
+              <input  type="password" ngModel placeholder="Enter Password" id="Password" required minlength="4" maxlength="10"  name="Password" #Password="ngModel" #spy class="form-control" >
                 <br>
+                <div *ngIf="Password.invalid && (Password.dirty || Password.touched || Password.pristine)" class="alert alert-danger">
+          <div *ngIf="Password.errors.required">
+              Password is required.
+          </div>
+          <div *ngIf="Password.errors.minlength">
+              Password must be at least 4 characters long.
+          </div>
+      </div>
               <button type="submit" class="btn btn-success">Login</button>
               <label style="color: white;">   
                 &nbsp;&nbsp; <a routerLink="/forgotpassword"><b style="color: rgb(62, 81, 185);">Forgotpassword</b></a>

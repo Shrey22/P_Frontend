@@ -76,6 +76,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -83,7 +84,7 @@
                     
                     <td>{{users.Name}}</td>
                     <td>{{users.EmailId}}</td>
-                    <td *ngIf="!users.IsLocked">  Active</td>
+                    <td *ngIf="!users.IsLocked">Active</td>
                     <td *ngIf="users.IsLocked">InActive</td>
                     <td *ngIf="!users.IsLocked"><button class="btn btn-danger" (click)="manageUser(users)" >Delete</button></td>
                     <td *ngIf="users.IsLocked"><button class="btn btn-success" (click)="manageUser(users)" >Activate</button></td>

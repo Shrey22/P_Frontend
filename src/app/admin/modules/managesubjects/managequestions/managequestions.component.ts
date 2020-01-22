@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-managequestions',
@@ -10,16 +12,40 @@ import { ActivatedRoute } from '@angular/router';
 export class ManagequestionsComponent implements OnInit {
   subject:any
   id:any  
+  message:string
+ 
   constructor(public service:DataService, public route:ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
        this.id= params['SubId']});
-    debugger
+    
     this.service.GetSubject(this.id).subscribe((subjectData:any)=>{
+      if(subjectData.Data !=null || subjectData.Data!=undefined)
       this.subject = subjectData.Data;
-      console.log(this.subject);
+      //console.log(this.subject);
       
+    })
+  }
+  addQues(quesObj:NgForm)
+  {
+    debugger
+    quesObj.value.SubId = this.id;
+    this.service.AddQuestions(quesObj.value)
+    .subscribe((result:any)=>{
+      // console.log(result.Status);
+      if (result.Status == "success") {
+        this.message = "Question added"
+        alert(this.message)
+        // quesObj.value=null
+
+        quesObj.resetForm()
+      }
+      else
+      {
+        this.message = "Failed"
+        
+      }
     })
   }
 

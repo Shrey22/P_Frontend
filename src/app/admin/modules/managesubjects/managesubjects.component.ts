@@ -8,9 +8,10 @@ import { DataService } from 'src/app/data.service';
 })
 export class ManagesubjectsComponent implements OnInit {
   subjects:any
-  constructor(private service:DataService) { }
+  constructor(private service:DataService) {  }
 
   ngOnInit() {
+    
     this.service.GetSubjects().subscribe((subjectData:any)=>{
       this.subjects = subjectData.Data;
       console.log(this.subjects);

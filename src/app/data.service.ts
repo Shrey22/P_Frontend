@@ -13,7 +13,7 @@ export class DataService {
   private generateOTPURL=  "http://localhost:53940/api/User/OTP";
   private changePwdURL=    "http://localhost:53940/api/User/UpdatePassword";
   private subjectURL =  "http://localhost:53940/api/Subject";
-  private 
+  private addQuesURL = "http://localhost:53940/api/Question";
   constructor(public http:HttpClient) { }
 
   LoginUserData(userObj)
@@ -51,6 +51,11 @@ export class DataService {
   AddSubject(subObj)
   {
     return this.http.post(this.subjectURL,subObj);
+  }
+
+  AddQuestions(quesObj)
+  {
+    return this.http.post(this.addQuesURL,quesObj);
   }
 
   UpdatePwd(userObj)
