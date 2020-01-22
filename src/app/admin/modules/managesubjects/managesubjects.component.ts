@@ -18,4 +18,12 @@ export class ManagesubjectsComponent implements OnInit {
     })
   }
 
+  deleteSub(subId)
+  {
+    this.service.DeleteSubject(subId)
+    .subscribe((result:any)=>{
+      console.log(result.Status);
+      this.ngOnInit()
+    })
+  }
 }

@@ -1,5 +1,5 @@
 
-  <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" routerLink ="/home">Shiksha</a>
     <ul class="nav navbar-nav">
       <li class="active">
@@ -48,11 +48,11 @@
     </ul>
      
  
-  </nav>  -->
+  </nav> 
 
 <br><br><br><br>
  
-<!-- <div class="bg-img"> -->
+<div class="bg-img">
   <h1>Manage Questions</h1>
  
   <div class="content">        
@@ -64,20 +64,11 @@
                </td>
                <td style="width: 400px;">
                 <div class="form-group">
-                    <input type="text" readonly class="form-control" id="subId" name="SubName" aria-describedby="emailHelp" placeholder="subject to be added">
+                    <input type="text" readonly class="form-control" id="subId" name="SubName" [(ngModel)]="subject.SubName">
                   </div>           
                </td>
            </tr>
-           <tr>
-            <td>
-             <b>Duration</b>
-            </td>
-            <td>
-             <div class="form-group">
-                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mm:ss">
-               </div>           
-            </td>
-        </tr>
+           
             <tr>
                 <td><a routerLink="/admin/modules/managesubjects">backto Manage-sub</a></td>
                 <td style="text-align: right;">
@@ -111,7 +102,32 @@
             </ul>
     </div>
 
-<!-- </div> -->
+    <div class="content2">
+      <form #myFrom ="ngForm" (ngSubmit)="addQues(myFrom.value)"> 
+        <label for="Question"><b>Question</b></label>
+        <input ngModel type="text"  name="Question" required class="form-control" >
+    
+        <label for="Opt1"><b>Opt 1</b></label>
+        <input ngModel type="text"  name="Opt1" required class="form-control" >
+        <label for="Opt2"><b>Opt 2</b></label>
+        <input ngModel type="text"  name="Opt2" required class="form-control" >
+        <label for="Opt3"><b>Opt 3</b></label>
+        <input ngModel type="text"  name="Opt3" required class="form-control" >
+        <label for="Opt4"><b>Opt 4</b></label>
+        <input ngModel type="text"  name="Opt4" required class="form-control" >
+        <label for="CorrectAns"><b>Correct Ans</b></label>
+        <input ngModel type="text"  name="CorrectAns" required class="form-control" ><br>
+        <div style="padding-left: 200px;">
+           <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+        
+      
+          <span>
+              {{message}}
+          </span>
+ </form>
+    </div>
+</div>
 
   
   

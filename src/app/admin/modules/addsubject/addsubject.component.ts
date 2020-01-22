@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-addsubject',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addsubject.component.css']
 })
 export class AddsubjectComponent implements OnInit {
-
-  constructor() { }
+message:string
+  constructor(private service: DataService) { }
 
   ngOnInit() {
+
+  }
+  addSubjects(subDataFromUI)
+  {
+       
+    let result = this.service.AddSubject(subDataFromUI)
+    .subscribe((subData:any)=>{
+      if (subData.error == null)
+      {
+        this.message = subData.Status;
+        console.log(subData);
+        
+      }
+    })
   }
 
 }

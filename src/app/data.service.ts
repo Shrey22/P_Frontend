@@ -61,6 +61,13 @@ export class DataService {
   {
     return this.http.put("http://localhost:53940/api/Subject/"+subId,subObj);
   }
+
+  UpdateUser(userId,userObj)
+  {
+    console.log(userObj);
+    
+    return this.http.put("http://localhost:53940/api/Users/"+userId,userObj);
+  }
 //----------------------REMOVE REQUESTS--------------------------------------------
   DeleteUser(userId)
   {

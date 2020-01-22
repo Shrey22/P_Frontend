@@ -83,8 +83,10 @@
                     
                     <td>{{users.Name}}</td>
                     <td>{{users.EmailId}}</td>
-                    <td>Active</td>
-                    <td><button class="btn btn-success" routerLink="/admin/users/manageusers">Manage</button></td>
+                    <td *ngIf="!users.IsLocked">  Active</td>
+                    <td *ngIf="users.IsLocked">InActive</td>
+                    <td *ngIf="!users.IsLocked"><button class="btn btn-danger" (click)="manageUser(users)" >Delete</button></td>
+                    <td *ngIf="users.IsLocked"><button class="btn btn-success" (click)="manageUser(users)" >Activate</button></td>
                   </tr>
                   
                 </tbody>

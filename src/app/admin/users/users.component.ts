@@ -16,11 +16,26 @@ export class UsersComponent implements OnInit {
     .subscribe((result:any)=>{
       // debugger
       this.userData = result.Data;
-      
-        
       });  
       
   }
 
+  manageUser(user)
+  {
+    debugger
+    // if (user.IsLocked == true) 
+    // {
+    //   user.IsLocked="false";  
+    // }
+    // else
+    // {user.IsLocked="true";}
+    user.IsLocked=!user.IsLocked
+    this.service.UpdateUser(user.UserId,user)
+    .subscribe((result:any)=>{
+      console.log(result.Status);
+      console.log(result.Data);
+      
+    })
+  }
 
 }

@@ -102,7 +102,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       { path: 'admin/modules/addsubject',component:AddsubjectComponent, canActivate:[AuthService] },
       { path: 'admin/modules/managesubjects',component:ManagesubjectsComponent, canActivate:[AuthService] },
       { path: 'admin/modules/managesubjects/edit',component:EditComponent, canActivate:[AuthService] },
-      { path: 'admin/modules/managesubjects/manageque',component:ManagequestionsComponent, canActivate:[AuthService] },
+      { path: 'admin/modules/managesubjects/manageque/:SubId',component:ManagequestionsComponent, canActivate:[AuthService] },
       { path: 'admin/users',component:UsersComponent, canActivate:[AuthService] },
       { path: 'admin/users/manageusers',component:ManageuserComponent, canActivate:[AuthService] },
       { path: 'admin/exam',component:AExamComponent, canActivate:[AuthService] },
