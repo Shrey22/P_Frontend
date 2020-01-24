@@ -47,7 +47,7 @@
         </li>
     </ul>
      
-   
+    
   </nav> 
 
 <br><br><br><br>
@@ -61,31 +61,12 @@
             <td>Email</td>
             <td></td>
           </tr><br>
-          <tr>
-            <td>shrey1</td>
-            <td>shrey@123</td>
+          <tr *ngFor="let u of users">
+            <td>{{u.fd.T_Users.Name}}</td>
+            <td>{{u.fd.T_Users.EmailId}}</td>
             <td><a routerLink="/admin/feedback/viewfb">View Feedback</a></td>
           </tr> 
-          <tr>
-            <td>shrey1</td>
-            <td>shrey@123</td>
-            <td><a routerLink="/admin/feedback/viewfb">View Feedback</a></td>
-          </tr> 
-          <tr>
-            <td>shrey1</td>
-            <td>shrey@123</td>
-            <td><a routerLink="/admin/feedback/viewfb">View Feedback</a></td>
-          </tr> 
-          <tr>
-            <td>shrey1</td>
-            <td>shrey@123</td>
-            <td><a routerLink="/admin/feedback/viewfb">View Feedback</a></td>
-          </tr> 
-          <tr>
-            <td>shrey1</td>
-            <td>shrey@123</td>
-            <td><a routerLink="/admin/feedback/viewfb">View Feedback</a></td>
-          </tr>          
+         
         </table>
       </div>
 

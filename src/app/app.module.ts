@@ -22,6 +22,7 @@ import { ManageProfileComponent } from './user/manage-profile/manage-profile.com
 import { SamplePaperComponent } from './user/sample-paper/sample-paper.component';
 import { PerformanceComponent } from './user/performance/performance.component';
 import { FeedbackComponent } from './user/feedback/feedback.component';
+import { UExamComponent } from './user/u-exam/u-exam.component';
 //======================= Basic Admin components ===============================================//
 
 import { ModulesComponent } from './admin/modules/modules.component';
@@ -30,7 +31,6 @@ import { ADashboardComponent } from './admin/a-dashboard/a-dashboard.component';
 import { AExamComponent } from './admin/a-exam/a-exam.component';
 import { AFeedbackComponent } from './admin/a-feedback/a-feedback.component';
 import { AManageProfileComponent } from './admin/a-manage-profile/a-manage-profile.component';
-import { UExamComponent } from './user/u-exam/u-exam.component';
 import { ManageuserComponent } from './admin/users/manageuser/manageuser.component';
 import { ResultsComponent } from './admin/a-exam/results/results.component';
 import { AddsubjectComponent } from './admin/modules/addsubject/addsubject.component';
@@ -92,7 +92,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       { path: 'onlineusers',component:OnlineusersComponent, canActivate:[AuthService] },
       { path: 'exam',component:ExamComponent, canActivate:[AuthService] },
       { path: 'user/dashboard',component:DashboardComponent, canActivate:[AuthService] },
-      { path: 'user/exam',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/exam/C Language',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/exam/C++',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/exam/OS',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/exam/DBT',component:UExamComponent, canActivate:[AuthService] },
       { path: 'user/manageprofile',component:ManageProfileComponent, canActivate:[AuthService] },
       { path: 'user/samplepapers',component:SamplePaperComponent, canActivate:[AuthService] },
       { path: 'user/performance',component:PerformanceComponent, canActivate:[AuthService] },

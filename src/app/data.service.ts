@@ -5,15 +5,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private getUsersURL =    "http://localhost:53940/api/Users";
-  private loginURl =    "http://localhost:53940/api/Login"
-  private userProfileURL = "http://localhost:53940/api/Users/"
-  private registerURl = "http://localhost:53940/api/Login/Register"
-  private forgotPwdURL ="http://localhost:53940/api/User/IsExist";
-  private generateOTPURL=  "http://localhost:53940/api/User/OTP";
-  private changePwdURL=    "http://localhost:53940/api/User/UpdatePassword";
-  private subjectURL =  "http://localhost:53940/api/Subject";
-  private addQuesURL = "http://localhost:53940/api/Question";
+  private getUsersURL =    "http://localhost:54881/api/Users";
+  private loginURl =    "http://localhost:54881/api/Login"
+  private userProfileURL = "http://localhost:54881/api/Users/"
+  private registerURl = "http://localhost:54881/api/Login/Register"
+  private forgotPwdURL ="http://localhost:54881/api/User/IsExist";
+  private generateOTPURL=  "http://localhost:54881/api/User/OTP";
+  private changePwdURL=    "http://localhost:54881/api/User/UpdatePassword";
+  private subjectURL =  "http://localhost:54881/api/Subject";
+  private addQuesURL = "http://localhost:54881/api/Question";
+  private feedbkURL = "http://localhost:54881/api/Question/AFeedback/onlysubmiteduser";
+  private postfeedbkURL = "http://localhost:54881/api/AFeedback";
+  // private resultURL = "http://localhost:54881/api/Result/LoggedInUser/";
+  private resultURL = "http://localhost:54881/api/Result/";
+
   constructor(public http:HttpClient) { }
 
   LoginUserData(userObj)
@@ -44,9 +49,19 @@ export class DataService {
   }
   GetSubject(subId:any)
   {
-    return this.http.get("http://localhost:53940/api/Subject/"+subId);
+    return this.http.get("http://localhost:54881/api/Subject/"+subId);
   }
 
+  GetAFeedback()
+  {
+    debugger
+      return this.http.get(this.feedbkURL);
+  }
+
+  GetResult(id:any)
+  {
+      return this.http.get(this.resultURL+id);
+  }
   //----------------- ADD MODIFY DATA ---------------------------------------------
   AddSubject(subObj)
   {
@@ -64,14 +79,19 @@ export class DataService {
   }
   ModifySubject(subId, subObj)
   {
-    return this.http.put("http://localhost:53940/api/Subject/"+subId,subObj);
+    return this.http.put("http://localhost:54881/api/Subject/"+subId,subObj);
   }
 
   UpdateUser(userId,userObj)
   {
     console.log(userObj);
     
-    return this.http.put("http://localhost:53940/api/Users/"+userId,userObj);
+    return this.http.put("http://localhost:54881/api/Users/"+userId,userObj);
+  }
+
+  insertFeedback(obj)
+  {
+    return this.http.post(this.postfeedbkURL,obj);
   }
 //----------------------REMOVE REQUESTS--------------------------------------------
   DeleteUser(userId)
@@ -81,7 +101,7 @@ export class DataService {
 
   DeleteSubject(subId)
   {
-    return this.http.delete("http://localhost:53940/api/Subject/"+subId);
+    return this.http.delete("http://localhost:54881/api/Subject/"+subId);
   }
 //---------------------------------------------------------------------------------
   OTPGenerate(email)

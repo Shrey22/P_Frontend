@@ -18,7 +18,7 @@ export class ManagesubjectsComponent implements OnInit {
       
     })
   }
-
+ 
   deleteSub(subId)
   {
     this.service.DeleteSubject(subId)

@@ -5,7 +5,7 @@
 
 <h1>user dashboard</h1>
  --> 
- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+ <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" routerLink ="/home">Shiksha</a>
     <ul class="nav navbar-nav">
       <li class="active">
@@ -41,17 +41,17 @@
         </li>
     </ul>
     
-
-  </nav> 
+ 
+  </nav>  -->
  
 <br><br><br>
     <div class="bg-img"><br>
        <h1 style="color: white; padding-left: 20px;">Feedback</h1>
        <div class="content">
             
-            <form action="" method="POST" role="form">            
+            <form #myform="ngForm" (ngSubmit)="addfeedback(myform.form.value)">            
               <div class="form-group">
-                <textarea name="" id="input" class="form-control" rows="7" placeholder="your precious feedback if any,"></textarea>
+                <textarea name="" id="input" class="form-control" rows="7" name="Message" [(ngModel)]="Message" placeholder="your precious feedback if any,"></textarea>
               </div>
             
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -61,11 +61,11 @@
     </div>
   <router-outlet></router-outlet>
   
-  <div class="footer bg-dark">
+  <!-- <div class="footer bg-dark">
       <div class="footer-copyright text-center py-2">© 2020 Copyright
         <a routerLink="/home">Shiksha.kdac.org</a>
       </div> 
   </div>
-  
+   -->
   
  

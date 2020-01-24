@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ManagequestionsComponent implements OnInit {
   subject:any
-  id:any  
+  id:any   
   message:string
  
   constructor(public service:DataService, public route:ActivatedRoute) { }

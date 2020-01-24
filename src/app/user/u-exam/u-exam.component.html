@@ -5,7 +5,7 @@
 
 <h1>user dashboard</h1>
  --> 
- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+ <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" routerLink ="/home">Shiksha</a>
     <ul class="nav navbar-nav">
       <li class="active">
@@ -42,7 +42,7 @@
     </ul>
     
 
-  </nav> 
+  </nav>  -->
   
 
 <!-- woking navbar -->
@@ -83,13 +83,18 @@
 <br><br><br><br>
 <h1>Exam Page</h1>
 
+          <p *ngFor="let sub of subjectname">
+            Start Exam Of  {{sub.subjectname}}
+          </p>
+
+
   <router-outlet></router-outlet>
   
-  <div class="footer bg-dark">
+  <!-- <div class="footer bg-dark">
       <div class="footer-copyright text-center py-2">© 2020 Copyright
         <a routerLink="/home">Shiksha.kdac.org</a>
       </div> 
-  </div>
+  </div> -->
   
   
  
