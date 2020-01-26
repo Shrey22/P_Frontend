@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-
+  checked:boolean
   constructor(public service:DataService,public router:Router) { }
 
   ngOnInit() {
@@ -16,12 +16,15 @@ export class FeedbackComponent implements OnInit {
 
   addfeedback(datafromUI)
   {
+    this.checked = true;
+
     datafromUI.UserId_ = parseInt(sessionStorage.getItem("UserId"))
     this.service.insertFeedback(datafromUI)
     .subscribe((fetcheddata:any)=>{
       console.log(fetcheddata.Status)
       if(fetcheddata.Status =="success")
       {
+        // this.checked = true;
         alert("Feedback submited.Thank your for your response :)")
         this.router.navigate(['user/dashboard'])
         
@@ -29,4 +32,4 @@ export class FeedbackComponent implements OnInit {
     })
   }
 }
- 
+  

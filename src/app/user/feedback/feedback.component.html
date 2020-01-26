@@ -54,7 +54,10 @@
                 <textarea name="" id="input" class="form-control" rows="7" name="Message" [(ngModel)]="Message" placeholder="your precious feedback if any,"></textarea>
               </div>
             
-              <button type="submit" class="btn btn-primary">Submit</button>
+             
+                <button type="submit" class="btn btn-primary" [disabled]="checked" >Submit</button>
+              
+              
             </form>
             
        </div>

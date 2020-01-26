@@ -81,6 +81,11 @@ export class DataService {
      return this.http.get(this.questionpaperofsubjURL+sid);
   }
 
+  GetPDF()
+  {
+    return this.http.get("http://localhost:54881/api/Subject/pdf");
+  }
+
   //----------------- ADD MODIFY DATA ---------------------------------------------
   AddSubject(subObj)
   {
@@ -113,9 +118,14 @@ export class DataService {
     return this.http.post(this.postfeedbkURL,obj);
   }
 
-  SubmitAns(obj:string)
+  SubmitAns(obj:any)
   {
     return this.http.post(this.submitanswersURL,obj);
+  }
+
+  SubmitAns1(obj:any,UID,SID:any)
+  {
+    return this.http.put(this.submitanswersURL+"/Subid/"+SID,obj,UID);
   }
 
 //----------------------REMOVE REQUESTS--------------------------------------------
