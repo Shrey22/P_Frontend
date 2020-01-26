@@ -18,6 +18,9 @@ export class DataService {
   private postfeedbkURL = "http://localhost:54881/api/AFeedback";
   // private resultURL = "http://localhost:54881/api/Result/LoggedInUser/";
   private resultURL = "http://localhost:54881/api/Result/";
+  private questionpaperURL = "http://localhost:54881/api/Question";
+  private questionpaperofsubjURL = "http://localhost:54881/api/Question/";
+  private submitanswersURL = "http://localhost:54881/api/Question";
 
   constructor(public http:HttpClient) { }
 
@@ -62,6 +65,22 @@ export class DataService {
   {
       return this.http.get(this.resultURL+id);
   }
+
+  GetQuestbySubj(subj:any)
+  {
+      return this.http.get(this.questionpaperURL+subj);
+  }
+
+  GetQuestpaper()
+  {
+      return this.http.get("http://localhost:54881/api/Question");
+  }
+
+  GetQuestpaperwithsubjId(sid)
+  {
+     return this.http.get(this.questionpaperofsubjURL+sid);
+  }
+
   //----------------- ADD MODIFY DATA ---------------------------------------------
   AddSubject(subObj)
   {
@@ -93,6 +112,12 @@ export class DataService {
   {
     return this.http.post(this.postfeedbkURL,obj);
   }
+
+  SubmitAns(obj:string)
+  {
+    return this.http.post(this.submitanswersURL,obj);
+  }
+
 //----------------------REMOVE REQUESTS--------------------------------------------
   DeleteUser(userId)
   {

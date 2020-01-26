@@ -80,15 +80,46 @@
 
 
 
-<br><br><br><br>
-<h1>Exam Page</h1>
+<br>
+<br>
+<br>
+<br>
+<h1> Exam Page</h1>
 
-          <p *ngFor="let sub of subjectname">
-            Start Exam Of  {{sub.subjectname}}
-          </p>
+         <div align="center" >
+          
+          <table border="1">
+            <tr>
+              <td>
+                <table style="height: 300px; width: 500px;" >
+                  <tr>
+                    <td colspan="4"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: center;"><b>Subject    :   {{subject}}</b></td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: center;"><b>Duration    :   10 mins</b></td>
+                  </tr>
+                  <tr> 
+                    <td colspan="4">
+                      
+                      <button type="button" class="btn btn-large btn-block btn-success" (click)="startexam()" >Start Exam</button>
+                      
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+         </div>
 
 
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> 
   
   <!-- <div class="footer bg-dark">
       <div class="footer-copyright text-center py-2">© 2020 Copyright

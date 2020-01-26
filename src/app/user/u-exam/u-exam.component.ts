@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-u-exam',
@@ -9,21 +9,39 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UExamComponent implements OnInit {
   subject:any
-  subjectname:any   
+  subjectid:any   
   message:string
-  constructor(public service:DataService, public route:ActivatedRoute) { }
+  Subjpaper:any
+  constructor(public service:DataService, public route:ActivatedRoute, public router:Router) { }
 
   ngOnInit() {
-
+    
     this.route.params.subscribe(params=>{
-      this.subjectname= params['SubName']});
-   
-  //  this.service.GetSubject(this.id).subscribe((subjectData:any)=>{
-  //    if(subjectData.Data !=null || subjectData.Data!=undefined)
-  //    this.subject = subjectData.Data;
-  //    //console.log(this.subject);
+      this.subjectid= params.subjectid
+  
+      console.log(this.subjectid);
+
+      this.service.GetSubject(this.subjectid)
+      .subscribe((fetchsubj:any)=>{
+        
+        console.log(fetchsubj);
+        
+        if(fetchsubj.Status == "success")
+        {
+
+          this.subject = fetchsubj.Data.SubName
+          console.log(this.subject);
+          
+        }
+      })
+    });
   }
 
-
-
+  startexam() 
+  {
+       this.router.navigate(['/user/uexam/paper/'+this.subjectid]);
+      
+  
+  }
 }
+

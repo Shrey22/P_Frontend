@@ -40,6 +40,7 @@ import { EditComponent } from './admin/modules/managesubjects/edit/edit.componen
 import { ManagequestionsComponent } from './admin/modules/managesubjects/managequestions/managequestions.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { PaperComponent } from './user/u-exam/paper/paper.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     EditComponent,
     ManagequestionsComponent,
     ForgotPasswordComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    PaperComponent
   ],
   imports: [
     BrowserModule,
@@ -92,10 +94,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       { path: 'onlineusers',component:OnlineusersComponent, canActivate:[AuthService] },
       { path: 'exam',component:ExamComponent, canActivate:[AuthService] },
       { path: 'user/dashboard',component:DashboardComponent, canActivate:[AuthService] },
-      { path: 'user/exam/C Language',component:UExamComponent, canActivate:[AuthService] },
-      { path: 'user/exam/C++',component:UExamComponent, canActivate:[AuthService] },
-      { path: 'user/exam/OS',component:UExamComponent, canActivate:[AuthService] },
-      { path: 'user/exam/DBT',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/exam/:subjectid',component:UExamComponent, canActivate:[AuthService] },
+      { path: 'user/uexam/paper/:subjectid',component:PaperComponent, canActivate:[AuthService] },   
       { path: 'user/manageprofile',component:ManageProfileComponent, canActivate:[AuthService] },
       { path: 'user/samplepapers',component:SamplePaperComponent, canActivate:[AuthService] },
       { path: 'user/performance',component:PerformanceComponent, canActivate:[AuthService] },
