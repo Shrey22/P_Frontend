@@ -13,13 +13,14 @@ export class PerformanceComponent implements OnInit {
   constructor(public service:DataService, public router:Router) { }
 
   ngOnInit() {
+    debugger
     console.log("inside performance TS");
     
     
     this.id = parseInt(sessionStorage.getItem("UserId"))
     this.service.GetResult(this.id)
     .subscribe((resultdata:any)=>{
-      
+      debugger
       if(resultdata.Data != null)
       {
         this.result = resultdata.Data

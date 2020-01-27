@@ -7,24 +7,24 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./addsubject.component.css']
 })
 export class AddsubjectComponent implements OnInit {
-message:string
-  constructor(private service: DataService) { }
-
-  ngOnInit() {
-
+  message:string
+    constructor(private service: DataService) { }
+  
+    ngOnInit() {
+  
+    }
+    addSubjects(subDataFromUI)
+    {
+         
+      let result = this.service.AddSubject(subDataFromUI)
+      .subscribe((subData:any)=>{
+        if (subData.error == null)
+        {
+          this.message = subData.Status;
+          console.log(subData);
+          
+        }
+      })
+    }
+  
   }
-  addSubjects(subDataFromUI)
-  {
-       
-    let result = this.service.AddSubject(subDataFromUI)
-    .subscribe((subData:any)=>{
-      if (subData.error == null)
-      {
-        this.message = subData.Status;
-        console.log(subData);
-        
-      }
-    })
-  }
-
-}

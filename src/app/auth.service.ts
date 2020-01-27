@@ -49,6 +49,7 @@ UserData:any
     delete sessionStorage["UserId"];
     delete sessionStorage["userData"];
     delete sessionStorage["isLoggedIn"];
+    delete sessionStorage["RoleId"];
     this.router.navigate(['/login']);
   }
 }

@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     
     left: 0;
     bottom: 0;
@@ -15,4 +15,27 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-  }
+  } */
+
+/* -----Rajesh FE ---*/
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:slategrey;
+   color: white;
+   text-align: center;
+   height: 45px;
+}
+
+
+.avatar {
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+ }
+
+

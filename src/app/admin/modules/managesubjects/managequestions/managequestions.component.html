@@ -1,55 +1,5 @@
 
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" routerLink ="/home">Shiksha</a>
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a class = "nav-link" routerLink ="/admin/dashboard">DashBoard</a>
-      </li>
-      <li class="active">
-        <a class = "nav-link" routerLink ="/home">Home</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Modules
-        </a> 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink ="/admin/modules/managesubjects">Manage Subjects</a>
-          <a class="dropdown-item" routerLink ="/admin/modules/addsubject">Add Subject</a>
-        </div>
-      </li>  
-      <li class="active">
-        <a class = "nav-link" routerLink ="/admin/users">Users</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Exams
-        </a> 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink ="/admin/exam/results">Results</a>
   
-        </div>
-      </li>
-      <li class="active">
-        <a class = "nav-link" routerLink ="/admin/feedback">Feedback</a>
-      </li>
-      <li class="active">
-        <a class = "nav-link" routerLink ="/admin/manageprofile">Manage Profile</a>
-      </li> 
-    </ul> 
-    <ul style="padding-left: 532px;">
-      <div>
-       <img src="assets/images/avt1.jpg" alt="Avatar" class="avatar" >
-      </div>
-    </ul>
-    <ul class="nav navbar-right">
-        <li>
-            <a class="nav-link" routerLink="/login">Logout</a>
-        </li>
-    </ul>
-     
- 
-  </nav> 
-
 <br><br><br><br>
  
 <div class="bg-img">
@@ -79,7 +29,7 @@
 
     <div class="content1">
             <h3>Added Questions</h3>
-            <ul>
+               <!-- <ul>
                 <li>
                     Question 1
                 </li>
@@ -89,7 +39,11 @@
                 <li>
                     Question 3
                 </li>
-            </ul>
+            </ul> -->
+            <div *ngFor="let ques of questions;index as i">
+             <button type="button" (click)="editQuestion(ques)">Question {{i+1}}</button>
+             
+            </div>
     </div>
 
     <div class="content2">
@@ -110,13 +64,33 @@
         <input ngModel type="text"  name="CorrectAns" required class="form-control" ><br>
         <div style="padding-left: 200px;">
            <button type="submit" class="btn btn-success">Submit</button>
+           
         </div>
+        </form>
         
-      
-          
- </form>
- 
     </div>
+    <div class="content2" *ngIf="this.editQues">
+      <form #myFrom ="ngForm" (ngSubmit)="addQues(myFrom)"> 
+              <label for="Question"><b>Question</b></label>
+              <input [(ngModel)]="this.specificQues.Question" type="text"  name="Question" required class="form-control" >
+          
+              <label for="Opt1"><b>Opt 1</b></label>
+              <input [(ngModel)]="this.specificQues.Opt1" type="text"  name="Opt1" required class="form-control" >
+              <label for="Opt2"><b>Opt 2</b></label>
+              <input [(ngModel)]="this.specificQues.Opt2" type="text"  name="Opt2" required class="form-control" >
+              <label for="Opt3"><b>Opt 3</b></label>
+              <input [(ngModel)]="this.specificQues.Opt3" type="text"  name="Opt3" required class="form-control" >
+              <label for="Opt4"><b>Opt 4</b></label>
+              <input [(ngModel)]="this.specificQues.Opt4" type="text"  name="Opt4" required class="form-control" >
+              <label for="CorrectAns"><b>Correct Ans</b></label>
+              <input [(ngModel)]="this.specificQues.CorrectAns" type="text"  name="CorrectAns" required class="form-control" ><br>
+              <div style="padding-left: 200px;">
+                 <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <button type="button" (click)="cancel()" class="btn btn-danger">Cancel</button>
+              </div>
+              
+              </form>
+      </div>
 </div>
 
   

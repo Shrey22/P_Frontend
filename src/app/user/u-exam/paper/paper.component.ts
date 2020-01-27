@@ -13,6 +13,7 @@ export class PaperComponent implements OnInit {
   subjectid:any
   Subjpaper:any
   myarray: any[];
+  scorearray:any ;
 
 
   constructor(public service:DataService,public route:ActivatedRoute,public router:Router) { }
@@ -29,7 +30,8 @@ export class PaperComponent implements OnInit {
       });
 
 
-    this.service.GetQuestpaperwithsubjId(this.subjectid)
+    // this.service.GetQuestpaperwithsubjId(this.subjectid)
+     this.service.GetQuestpaperwithsubjId(this.subjectid)
     .subscribe((questionpaper:any)=>
     {
       
@@ -38,6 +40,42 @@ export class PaperComponent implements OnInit {
     });
 
   }  
+
+  // answers(datafromUI:any)
+  // {
+  //   debugger
+    
+  //     console.log(datafromUI.value);
+  //   let formData = datafromUI.value
+
+  //   console.log(formData);
+    
+  //   // var myJSON = JSON.stringify(formData);
+
+  //   // console.log(myJSON);
+  //    let uid = parseInt(sessionStorage.getItem("UserId")); 
+
+  //   // console.log(formData);
+  //   // let qid =formData.QueId
+
+  //     const array = Object.keys(formData).map( qid=>({QueId:qid, value:formData[qid]}));
+  //     console.log(array);
+  //     let UID = {userId:uid,subId:this.subjectid}
+  //    // array.push(UID);
+     
+  //     this.service.SubmitAns(array)
+  //     .subscribe((reply:any)=>{
+  //       debugger
+  //       if(reply.Status == "success")
+  //       {
+  //         alert("Your Score is "+reply.Data+".\nYou can go through our Sample paper Series.\nclick Ok")
+  //         this.router.navigate(["user/samplepapers"])
+  //       }
+  //       console.log(reply.Status)
+  //     })
+      
+  // }
+
 
   answers(datafromUI:any)
   {
@@ -48,17 +86,9 @@ export class PaperComponent implements OnInit {
 
     console.log(formData);
     
-    // var myJSON = JSON.stringify(formData);
-
-    // console.log(myJSON);
      let uid = parseInt(sessionStorage.getItem("UserId")); 
 
-    // console.log(formData);
-    // let qid =formData.QueId
-
-
-
-
+     var subjid = parseInt(this.subjectid)
 
       const array = Object.keys(formData).map( qid=>({QueId:qid, value:formData[qid]}));
       console.log(array);
@@ -71,36 +101,23 @@ export class PaperComponent implements OnInit {
         if(reply.Status == "success")
         {
           alert("Your Score is "+reply.Data+".\nYou can go through our Sample paper Series.\nclick Ok")
-          this.router.navigate(["user/samplepapers"])
-        }
-        console.log(reply.Status)
-      })
-      
-  }
 
+          this.scorearray = 
+            {"UserId":uid.toString(),"SubId":subjid.toString(),"CntCorrectAns":(reply.Data).toString()}
+          
+          // let rd = reply.Data
+          // let tempObj = {uid,subjid,rd}
+        console.log(this.scorearray);
 
-  answers1(datafromUI:any)
-  {
-    debugger
-    
-      console.log(datafromUI.value);
-    let formData = datafromUI.value
+        // const array1 = Object.keys(tempObj).map( qid=>({UserId:qid, value:tempObj[qid]}),sid=>({SubId:sid, value:tempObj[sid]}));
+        // console.log(array1);
+        
+        this.service.SendScore(this.scorearray)
+        .subscribe((replyfromserver:any)=>{
+          console.log(replyfromserver.Status);
+          
+        })
 
-    console.log(formData);
-   
-     let uid = parseInt(sessionStorage.getItem("UserId")); 
-
-      const array = Object.keys(formData).map( qid=>({QueId:qid, value:formData[qid]}));
-      console.log(array);
-    
-    
-     
-      this.service.SubmitAns1(array,uid,this.subjectid)
-      .subscribe((reply:any)=>{
-        debugger
-        if(reply.Status == "success")
-        {
-          alert("Your Score is "+reply.Data+".\nYou can go through our Sample paper Series.\nclick Ok")
           this.router.navigate(["user/samplepapers"])
         }
         console.log(reply.Status)
@@ -110,3 +127,6 @@ export class PaperComponent implements OnInit {
 
 
   }
+
+
+  

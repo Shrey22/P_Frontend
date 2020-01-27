@@ -31,7 +31,6 @@ import { ADashboardComponent } from './admin/a-dashboard/a-dashboard.component';
 import { AExamComponent } from './admin/a-exam/a-exam.component';
 import { AFeedbackComponent } from './admin/a-feedback/a-feedback.component';
 import { AManageProfileComponent } from './admin/a-manage-profile/a-manage-profile.component';
-import { ManageuserComponent } from './admin/users/manageuser/manageuser.component';
 import { ResultsComponent } from './admin/a-exam/results/results.component';
 import { AddsubjectComponent } from './admin/modules/addsubject/addsubject.component';
 import { ViewfeedbackComponent } from './admin/a-feedback/viewfeedback/viewfeedback.component';
@@ -41,6 +40,7 @@ import { ManagequestionsComponent } from './admin/modules/managesubjects/manageq
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PaperComponent } from './user/u-exam/paper/paper.component';
+import { ReviewPaperComponent } from './admin/a-exam/review-paper/review-paper.component';
 
 
 @NgModule({
@@ -67,7 +67,6 @@ import { PaperComponent } from './user/u-exam/paper/paper.component';
     AFeedbackComponent,
     AManageProfileComponent,
     UExamComponent,
-    ManageuserComponent,
     ResultsComponent,
     AddsubjectComponent,
     ViewfeedbackComponent,
@@ -76,7 +75,8 @@ import { PaperComponent } from './user/u-exam/paper/paper.component';
     ManagequestionsComponent,
     ForgotPasswordComponent,
     EditProfileComponent,
-    PaperComponent
+    PaperComponent,
+    ReviewPaperComponent
   ],
   imports: [
     BrowserModule,
@@ -100,21 +100,20 @@ import { PaperComponent } from './user/u-exam/paper/paper.component';
       { path: 'user/samplepapers',component:SamplePaperComponent, canActivate:[AuthService] },
       { path: 'user/performance',component:PerformanceComponent, canActivate:[AuthService] },
       { path: 'user/feedback',component:FeedbackComponent, canActivate:[AuthService] },
-      { path: 'admin/dashboard',component:ADashboardComponent, canActivate:[AuthService] },
+      { path: 'admin/home',component:HomeComponent, canActivate:[AuthService] },
       { path: 'admin/modules',component:ModulesComponent, canActivate:[AuthService] },
       { path: 'admin/modules/addsubject',component:AddsubjectComponent, canActivate:[AuthService] },
       { path: 'admin/modules/managesubjects',component:ManagesubjectsComponent, canActivate:[AuthService] },
       { path: 'admin/modules/managesubjects/edit',component:EditComponent, canActivate:[AuthService] },
       { path: 'admin/modules/managesubjects/manageque/:SubId',component:ManagequestionsComponent, canActivate:[AuthService] },
       { path: 'admin/users',component:UsersComponent, canActivate:[AuthService] },
-      { path: 'admin/users/manageusers',component:ManageuserComponent, canActivate:[AuthService] },
       { path: 'admin/exam',component:AExamComponent, canActivate:[AuthService] },
       { path: 'admin/exam/results',component:ResultsComponent, canActivate:[AuthService] },
+      { path: 'admin/exam/reviewpaper',component:ReviewPaperComponent, canActivate:[AuthService] },
       { path: 'admin/feedback',component:AFeedbackComponent, canActivate:[AuthService] },
-      { path: 'admin/feedback/viewfb',component:ViewfeedbackComponent, canActivate:[AuthService] },      
+      { path: 'admin/feedback/viewfb/:FId',component:ViewfeedbackComponent, canActivate:[AuthService] },      
       { path: 'admin/manageprofile',component:AManageProfileComponent, canActivate:[AuthService] },
       { path: 'forgotpassword', component:ForgotPasswordComponent},
-      { path: 'role',component:RoleComponent },
       { path: 'editprofile', component:EditComponent, canActivate:[AuthService]}
     ])
   ],

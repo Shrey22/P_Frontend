@@ -10,20 +10,41 @@ export class RegisterComponent implements OnInit {
   message:string
   constructor(public service:DataService, public router: Router) { }
 
-  ngOnInit() {
-  }
+ngOnInit() {
+}
 
-  register(DataFromUI:any)
+register(DataFromUI:any)
+{
+  let formData =DataFromUI.form.value;
+  console.log(formData);
+  if(formData.Password == formData.CnfPassword)
   {
-    console.log("register");
-    let result = this.service.RegisterData(DataFromUI.form.value);
+    if (sessionStorage.getItem("RoleId") == "1")
+    {
+      formData.RoleId = 1;
+    }
+    else
+    {
+      formData.RoleId = 2;
+    }
+    let result = this.service.RegisterData(formData);
 
     result.subscribe((data:any)=>{
-      if(data.error == null)
+    if(data.error == null)
       {
         this.message = data.Status;
         console.log(data.Data.UserId);
-        this.router.navigate(['login']);
+        if (formData.RoleId == 1) 
+        {
+          this.router.navigate(['home']);
+          alert("Admin registered Successfully!!")
+        }
+        else 
+        {
+          alert(" Registered Successfully!!")
+          this.router.navigate(['login']);  
+        }
+        
       }
       else
       {
@@ -33,5 +54,14 @@ export class RegisterComponent implements OnInit {
       }
     })
   }
+  else
+  {
+    this.message = "Password should match!"
+  }
+  
+}
 
 }
+
+
+

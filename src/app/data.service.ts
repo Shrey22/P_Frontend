@@ -13,13 +13,14 @@ export class DataService {
   private generateOTPURL=  "http://localhost:54881/api/User/OTP";
   private changePwdURL=    "http://localhost:54881/api/User/UpdatePassword";
   private subjectURL =  "http://localhost:54881/api/Subject";
-  private addQuesURL = "http://localhost:54881/api/Question";
+  private addQuesURL = "http://localhost:54881/api/Question/AddQuestion";
   private feedbkURL = "http://localhost:54881/api/Question/AFeedback/onlysubmiteduser";
   private postfeedbkURL = "http://localhost:54881/api/AFeedback";
-  // private resultURL = "http://localhost:54881/api/Result/LoggedInUser/";
+  
   private resultURL = "http://localhost:54881/api/Result/";
   private questionpaperURL = "http://localhost:54881/api/Question";
-  private questionpaperofsubjURL = "http://localhost:54881/api/Question/";
+  //private questionpaperofsubjURL = "http://localhost:54881/api/Question/";
+  private questionpaperofsubjURL = "http://localhost:54881/api/Questions/List/";
   private submitanswersURL = "http://localhost:54881/api/Question";
 
   constructor(public http:HttpClient) { }
@@ -55,15 +56,19 @@ export class DataService {
     return this.http.get("http://localhost:54881/api/Subject/"+subId);
   }
 
+  GetResults()
+  {
+    return this.http.get(this.resultURL);
+  }
+  GetResult(resId)
+  {
+    return this.http.get(this.resultURL+resId);
+  }
+
   GetAFeedback()
   {
     debugger
       return this.http.get(this.feedbkURL);
-  }
-
-  GetResult(id:any)
-  {
-      return this.http.get(this.resultURL+id);
   }
 
   GetQuestbySubj(subj:any)
@@ -123,10 +128,10 @@ export class DataService {
     return this.http.post(this.submitanswersURL,obj);
   }
 
-  SubmitAns1(obj:any,UID,SID:any)
-  {
-    return this.http.put(this.submitanswersURL+"/Subid/"+SID,obj,UID);
-  }
+ SendScore(obj:any)
+ {
+    return this.http.post("http://localhost:54881/api/Result",obj)
+ }
 
 //----------------------REMOVE REQUESTS--------------------------------------------
   DeleteUser(userId)

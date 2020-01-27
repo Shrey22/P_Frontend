@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-a-feedback',
@@ -9,31 +10,21 @@ import { Router } from '@angular/router';
 })
 export class AFeedbackComponent implements OnInit {
 
-  fdktable:any;
-  users:any;
-  fdkusers:any;
-  arr:any;
-  constructor(public service:DataService,public router:Router ) { }
+  userData:any;
+  constructor( private authService:AuthService, private service:DataService) { }
 
   ngOnInit() {
-
-    // this.service.GetUsers()
-    //   .subscribe((fetchedusers)=>{
-    //     this.users = fetchedusers
-    //   }) 
-
+    debugger
     this.service.GetAFeedback()
-    .subscribe((fetchdata)=>{
-      this.fdktable = fetchdata
-      debugger
-      console.log(this.fdktable.Data);
-     this.users = this.fdktable.Data;
-     console.log(this.users)
-    
-    })      
-    
+    .subscribe((result:any)=>{
+       debugger
+      console.log(result.Data);
+      
+      this.userData = result.Data;
+      console.log(this.userData.Name);
+      console.log(this.userData.IsLocked);
+      
+      });  
+      
   }
-
-
-  
 }

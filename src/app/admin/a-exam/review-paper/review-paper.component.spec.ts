@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageuserComponent } from './manageuser.component';
+import { ReviewPaperComponent } from './review-paper.component';
 
-describe('ManageuserComponent', () => {
-  let component: ManageuserComponent;
-  let fixture: ComponentFixture<ManageuserComponent>;
+describe('ReviewPaperComponent', () => {
+  let component: ReviewPaperComponent;
+  let fixture: ComponentFixture<ReviewPaperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageuserComponent ]
+      declarations: [ ReviewPaperComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageuserComponent);
+    fixture = TestBed.createComponent(ReviewPaperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
