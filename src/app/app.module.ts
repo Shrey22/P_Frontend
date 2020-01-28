@@ -93,6 +93,7 @@ import { ReviewPaperComponent } from './admin/a-exam/review-paper/review-paper.c
       { path: 'historylog',component:HistorylogComponent, canActivate:[AuthService] },
       { path: 'onlineusers',component:OnlineusersComponent, canActivate:[AuthService] },
       { path: 'exam',component:ExamComponent, canActivate:[AuthService] },
+      { path: 'user/home',component:HomeComponent, canActivate:[AuthService] },
       { path: 'user/dashboard',component:DashboardComponent, canActivate:[AuthService] },
       { path: 'user/exam/:subjectid',component:UExamComponent, canActivate:[AuthService] },
       { path: 'user/uexam/paper/:subjectid',component:PaperComponent, canActivate:[AuthService] },   

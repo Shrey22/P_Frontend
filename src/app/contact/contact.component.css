@@ -3,7 +3,7 @@
     max-width: 290px;
     /* margin: auto;  */
     text-align: center;
-    top: 40px;
+    top: 70px;
   }
   
   .title {
@@ -35,7 +35,7 @@
   }
 
   .bg-cn {
-    min-height: 552px;
+    min-height: 613px;
     background-image: url("/assets/images/abt1.jpg");
     background-size: cover;
   }

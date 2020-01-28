@@ -26,26 +26,32 @@ export class AManageProfileComponent implements OnInit {
       this.service.UserData(this.UserId)
       .subscribe((result:any)=>{
         this.userObj = result.Data;
-        console.log(this.userObj);
+        console.log("abccc"+this.userObj);
         
       })
     // })
 
   }
 
-  update(UIData:any)
+  update(UIData:any) 
   {
     debugger
+
+    console.log(this.userObj.Password);
+    console.log("==========================");
     
+    console.log(UIData.Password)
     if(UIData.Password == this.userObj.Password)
     {
-      if(UIData.newPassword == UIData.cnfPassword)
+      if(UIData.NewPassword == UIData.CnfPassword)
       {
-        this.userObj.Password = UIData.newPassword;
+        this.userObj.Password = UIData.NewPassword;
         this.service.UpdateUser(this.UserId,this.userObj)
         .subscribe((result:any)=>{
-          if(result.affectedRows>0)
+          console.log(result.affectedRows);
+          if(result.Status == "success")
           {
+            alert("Profile updated successfully")
             this.router.navigate(['home']);
           }
         })

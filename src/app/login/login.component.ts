@@ -60,7 +60,7 @@ Login(credentials: {EmailId:any; Password:any;})
       this.msg =" Username / Password is invalid";  
       console.log(this.msg);
       
-    }
+    } 
 
     if (isLoggedIn)
    {

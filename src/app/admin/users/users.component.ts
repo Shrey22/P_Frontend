@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.service.GetUsers()
     .subscribe((result:any)=>{
-      // debugger
+      // debugger 
       this.userData = result.Data;
       });  
       
@@ -23,13 +23,7 @@ export class UsersComponent implements OnInit {
 
   manageUser(user)
   {
-    // if (user.IsLocked == true) 
-    // {
-    //   user.IsLocked="false";  
-    // }
-    // else
-    // {user.IsLocked="true";}
-    
+   debugger 
     user.IsLocked=!user.IsLocked
     this.service.UpdateUser(user.UserId,user)
     .subscribe((result:any)=>{

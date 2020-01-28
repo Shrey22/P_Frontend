@@ -13,7 +13,7 @@
 /*    color: #f1f1f1; /* Grey text */
  /*   width: 100%; /* Full width */
  /*   padding: 20px; /* Some padding */
- /* } */
+ /* } */ 
  
   .container {
     position: absolute;
@@ -50,7 +50,7 @@
     -webkit-filter: blur(8px); */
 
     /* Control the height of the image */
-      min-height: 540px;   
+      min-height: 613px;   
   
     /* Center and scale the image nicely */
     background-position: center;
@@ -67,6 +67,58 @@
     background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
     color: #f1f1f1; /* Grey text */
     width: 42%; /* Full width */
+    padding: 20px; /* Some padding */
+  }
+
+  .bg-img .content1 {
+    position: absolute; /* Position the background text */
+    /*bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    /* top: 100px; */
+    top: 250px;
+    left: 80%;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 20%; /* Full width */
+    padding: 20px; /* Some padding */
+  }
+
+  .bg-img .content2 {
+    position: absolute; /* Position the background text */
+    /*bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    /* top: 190px; */
+    top: 340px;
+    left: 70%;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 30%; /* Full width */
+    padding: 20px; /* Some padding */
+  }
+
+  .bg-img .content3 {
+    position: absolute; /* Position the background text */
+    /*bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    /* top: 280px; */
+    top: 430px;
+    left: 75%;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 25%; /* Full width */
+    padding: 20px; /* Some padding */
+  }
+
+  .bg-img .content4 {
+    position: absolute; /* Position the background text */
+    /*bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    /* top: 370px; */
+    top: 520px;
+    left: 65%;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 35%; /* Full width */
     padding: 20px; /* Some padding */
   }
 /* <img src="assets/images/pen1.jpg" alt="Notebook" style="width: 100%;"> */
